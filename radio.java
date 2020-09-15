@@ -12,7 +12,7 @@ public class Radio {
         return currentStationNumber;
     }
 
-    public void setCurrentStationNumber(int currentStationNumber) {
+    public void setCurrentStationNumber(int currentStationNumber) { // будем считать что этим методом реализована функция нажатия кнопок на пульте от 0 до 9
     if (currentStationNumber > maxStationNumber) {
             return;
         }
@@ -55,15 +55,6 @@ public class Radio {
         } else {
             currentStationNumber = minStationNumber;
         }
-        
-    public void selectStation() {
-        if (currentStationNumber > maxStationNumber) {
-        return;}
-        if (currentStationNumber < minStationNumber) {
-        return;}
-        this.currentStationNumber = currentStationNumber;
-        }
-    
     
     // volume
         
