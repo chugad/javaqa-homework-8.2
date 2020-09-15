@@ -2,79 +2,86 @@ package ru.netology;
 
 public class Radio {
 
-    private int currentNumberOfStation;
-    private int minNumberOfStation = 0;
-    private int maxNumberOfStation = 9;
-    private int currentSoundVolume;
-    private int minSoundVolume = 0;
-    private int maxSoundVolume = 10;
-    
     // station
     
-    public int getCurrentNumberOfStation() {
-        return currentNumberOfStation;
+    private int currentStationNumber;
+    private int minStationNumber = 0;
+    private int maxStationNumber = 9;
+    
+        public int getCurrentStationNumber() {
+        return currentStationNumber;
     }
 
-    public void setCurrentNumberOfStation(int currentNumberOfStation) {
-    if (currentNumberOfStation > maxNumberOfStation) {
+    public void setCurrentStationNumber(int currentStationNumber) {
+    if (currentStationNumber > maxStationNumber) {
             return;
         }
-        if (cNumberOfStation < minNumberOfStation) {
+        if (currentStationNumber < minStationNumber) {
             return;
         }
-        this.currentNumberOfStation = currentNumberOfStation;
+        this.currentStationNumber = currentStationNumber;
     }
     
-    public int getMinNumberOfStation() {
-        return currentminNumberOfStation;
+    public int getMinStationNumber() {
+        return currentminStationNumber;
     }
 
-    public void setMinNumberOfStation(int minNumberOfStation) {
-        this.minNumberOfStation = minNumberOfStation;
+    public void setMinStationNumber(int minStationNumber) {
+        this.minStationNumber = minStationNumber;
     }
     
-    public int getMaxNumberOfStation() {
-        return maxNumberOfStation;
+    public int getMaxStationNumber() {
+        return maxStationNumber;
     }
 
-    public void setMaxNumberOfStation(int maxNumberOfStation) {
-        this.maxNumberOfStation = maxNumberOfStation;
+    public void setMaxStationNumber(int maxStationNumber) {
+        this.maxStationNumber = maxStationNumber;
     }
     
     public void next() {
-        if (currentNumberOfStation == maxNumberOfStation) {
-            currentNumberOfStation = minNumberOfStation;
+        if (currentStationNumber == maxStationNumber) {
+            currentStationNumber = minStationNumber;
         }
-        if (currentNumberOfStation < maxNumberOfStation) {
-            currentNumberOfStation = currentNumberOfStation + 1;
+        if (currentStationNumber < maxStationNumber) {
+            currentStationNumber = currentStationNumber + 1;
         }
     }
     public void prev() {
-        if (currentNumberOfStation == minNumberOfStation) {
-            currentNumberOfStation = maxNumberOfStation;
+        if (currentStationNumber == minStationNumber) {
+            currentStationNumber = maxStationNumber;
         }
-        if (currentNumberOfStation > minNumberOfStation) {
-            currentNumberOfStation = currentNumberOfStation - 1;
+        if (currentStationNumber > minStationNumber) {
+            currentStationNumber = currentStationNumber - 1;
         } else {
-            currentNumberOfStation = minNumberOfStation;
+            currentStationNumber = minStationNumber;
         }
         
     public void selectStation() {
-        if (currentNumberOfStation > maxNumberOfStation) {
+        if (currentStationNumber > maxStationNumber) {
         return;}
-        if (currentNumberOfStation < minNumberOfStation) {
+        if (currentStationNumber < minStationNumber) {
         return;}
-        this.currentNumberOfStation = currentNumberOfStation;
+        this.currentStationNumber = currentStationNumber;
         }
     
     
     // volume
+        
+    private int currentSoundVolume;
+    private int minSoundVolume = 0;
+    private int maxSoundVolume = 10;    
     
     public int getCurrentSoundVolume() {
         return currentSoundVolume;
     }
 
     public void setCurrentSoundVolume(int currentSoundVolume) {
+        if (currentSoundVolume > maxSoundVolume) {
+            return;
+        }
+        if (currentSoundVolume < minSoundVolume) {
+            return;
+        }
         this.currentSoundVolume = currentSoundVolume;
     }
     
@@ -93,61 +100,22 @@ public class Radio {
     public void setMaxSoundVolume(int maxSoundVolume) {
         this.maxSoundVolume = maxSoundVolume;
     }
-    
-    
-    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
-    public void setCurrentTemperature(int currentTemperature) {
-        if (currentTemperature > maxTemperature) {
-            return;
+        
+    public void plus() {
+        if (currentSoundVolume == 0) {
+            currentSoundVolume = maxSoundVolume;
         }
-        if (currentTemperature < minTemperature) {
-            return;
-        }
-            this.currentTemperature = currentTemperature;
-    }
-
-    public void increaseCurrentTemperature() {
-        if (currentTemperature == 0) {
-            currentTemperature = maxTemperature;
-        }
-        if (currentTemperature < maxTemperature) {
-            currentTemperature = currentTemperature + 1;
+        if (currentSoundVolume < maxSoundVolume) {
+            currentSoundVolume = currentSoundVolume + 1;
         } else {
-            currentTemperature = maxTemperature;
+            currentSoundVolume = maxSoundVolume;
         }
     }
-    public void decreaseCurrentTemperature() {
-        if (currentTemperature > minTemperature) {
-            currentTemperature = currentTemperature - 1;
+    public void minus() {
+        if (currentSoundVolume > minSoundVolume) {
+            currentSoundVolume = currentSoundVolume - 1;
         } else {
-            currentTemperature = minTemperature;
-        }
+            currentSoundVolume = minSoundVolume;
+        }    
+            
     }
-}
